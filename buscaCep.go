@@ -8,6 +8,7 @@ import (
 )
 
 const ROOT_PATH string = "/"
+const BUSCA_CEP_PATH string = "/buscaCep"
 const BAD_PARAM_MESSAGE string = "O parâmetro cep é obrigatório"
 const ERROR_FETCHING_CEP string = "Erro ao buscar o cep"
 const VIA_CEP_URL string = "https://viacep.com.br/ws/%s/json/"
@@ -28,7 +29,7 @@ type ViaCEP struct {
 }
 
 func BuscaCepHandler(w http.ResponseWriter, req *http.Request) {
-	if req.URL.Path != ROOT_PATH {
+	if req.URL.Path != BUSCA_CEP_PATH {
 		w.WriteHeader(http.StatusNotFound)
 		return
 	}
